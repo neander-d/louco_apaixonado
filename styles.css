@@ -1,0 +1,320 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+    color: #f0f0f0;
+}
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #e94560;
+    color: white;
+    font-size: 2rem;
+    font-family: 'Georgia', serif;
+}
+nav {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color: #0f3460;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+nav a:hover {
+    color: #e94560;
+}
+.container {
+    padding: 100px 20px 20px;
+    text-align: center;
+     line-height: 1.6;
+     
+}
+.hidden {
+    display: none;
+}
+.active {
+    display: block;
+}
+
+.photos {
+    position: relative;
+    max-width: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.photos img {
+    width: 100%;
+    display: none;
+}
+.photos img.active {
+    display: block;
+}
+.photo-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+}
+.photo-card {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.photo-card:hover {
+    transform: scale(1.05);
+}
+.highlighted {
+    display: none;
+    margin: 20px auto;
+    max-width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+.highlighted img {
+    width: 100%;
+}
+.fullscreen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+.fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+}
+#contador {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 30px;
+    font-family: Arial, sans-serif;
+}
+
+#tempo-juntos {
+    font-weight: bold;
+    font-size: 32px;
+    color: #333;
+}
+
+
+/* Estilo dos Pontinhos Indicadores */
+.indicators {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.indicators .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5); /* Cor dos pontos */
+    transition: background-color 0.3s;
+}
+
+.indicators .dot.active {
+    background-color: #fff; /* Cor do ponto ativo */
+}
+
+/* Estilo dos Botões de Navegação */
+.slideshow-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 1;
+    opacity: 5; /* Inicialmente invisível */
+    transition: opacity 0.3s ease;
+}
+
+.slideshow-controls button {
+    background-color: rgba(0, 0, 0, 0.5); /* Transparente */
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slideshow-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Transparência ao passar o mouse */
+}
+
+/* Mostrar os botões ao passar o mouse sobre a área da foto */
+.photos:hover .slideshow-controls {
+    opacity: 1; /* Torna os botões visíveis */
+}
+
+/* Posicionamento das fotos */
+.photos {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.photos img {
+    width: 100%;
+    height: auto;
+    display: none; /* Inicialmente todas as fotos são ocultas */
+}
+
+.photos img.active {
+    display: block; /* Exibe a foto ativa */
+}
+
+/* Estilos específicos para a seção "Nossa História" */
+.story {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 20px;
+}
+
+.story img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.story p {
+    max-width: 600px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+@media (max-width: 470px) {
+    .story {
+        flex-direction: column;
+    }
+
+    .story img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .story p {
+        padding: 0 10px;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .photos img {
+        width: 100%;
+        height: auto;
+    }
+
+    .slideshow-controls button {
+        font-size: 1.5rem;
+    }
+
+    .indicators .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        font-size: 1.2rem;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    .slideshow-controls button {
+        font-size: 1.2rem;
+    }
+
+    .indicators .dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    #tempo-juntos {
+        font-size: 20px; /* Reduz o tamanho da fonte para dispositivos menores */
+    }
+
+    .photo-cards {
+        flex-direction: column; /* Exibe as fotos em coluna em telas menores */
+        align-items: center;
+    }
+
+    .photo-card {
+        width: 120px; /* Ajusta o tamanho das fotos para telas menores */
+        height: 120px;
+    }
+}
+
+@media (max-width: 400px) {
+    header {
+        font-size: 1rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    #tempo-juntos {
+        font-size: 18px; /* Ajusta o tamanho da fonte do contador para telas muito pequenas */
+    }
+
+    .photo-card {
+        width: 100px;
+        height: 100px;
+    }
+}
