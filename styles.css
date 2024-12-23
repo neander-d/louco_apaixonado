@@ -36,8 +36,7 @@ nav a:hover {
 .container {
     padding: 100px 20px 20px;
     text-align: center;
-     line-height: 1.6;
-     
+    line-height: 1.6;
 }
 .hidden {
     display: none;
@@ -45,7 +44,6 @@ nav a:hover {
 .active {
     display: block;
 }
-
 .photos {
     position: relative;
     max-width: 300px;
@@ -117,35 +115,27 @@ nav a:hover {
     margin-top: 30px;
     font-family: Arial, sans-serif;
 }
-
 #tempo-juntos {
     font-weight: bold;
     font-size: 32px;
     color: #333;
 }
-
-
-/* Estilo dos Pontinhos Indicadores */
 .indicators {
     text-align: center;
     margin-top: 10px;
 }
-
 .indicators .dot {
     display: inline-block;
     width: 10px;
     height: 10px;
     margin: 0 5px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5); /* Cor dos pontos */
+    background-color: rgba(255, 255, 255, 0.5);
     transition: background-color 0.3s;
 }
-
 .indicators .dot.active {
-    background-color: #fff; /* Cor do ponto ativo */
+    background-color: #fff;
 }
-
-/* Estilo dos Botões de Navegação */
 .slideshow-controls {
     position: absolute;
     top: 50%;
@@ -156,12 +146,11 @@ nav a:hover {
     transform: translateY(-50%);
     width: 100%;
     z-index: 1;
-    opacity: 5; /* Inicialmente invisível */
+    opacity: 5;
     transition: opacity 0.3s ease;
 }
-
 .slideshow-controls button {
-    background-color: rgba(0, 0, 0, 0.5); /* Transparente */
+    background-color: rgba(0, 0, 0, 0.5);
     border: none;
     color: #fff;
     font-size: 2rem;
@@ -169,35 +158,12 @@ nav a:hover {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 .slideshow-controls button:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Transparência ao passar o mouse */
+    background-color: rgba(0, 0, 0, 0.7);
 }
-
-/* Mostrar os botões ao passar o mouse sobre a área da foto */
 .photos:hover .slideshow-controls {
-    opacity: 1; /* Torna os botões visíveis */
+    opacity: 1;
 }
-
-/* Posicionamento das fotos */
-.photos {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-.photos img {
-    width: 100%;
-    height: auto;
-    display: none; /* Inicialmente todas as fotos são ocultas */
-}
-
-.photos img.active {
-    display: block; /* Exibe a foto ativa */
-}
-
-/* Estilos específicos para a seção "Nossa História" */
 .story {
     display: flex;
     flex-wrap: wrap;
@@ -206,115 +172,15 @@ nav a:hover {
     margin: 20px 0;
     gap: 20px;
 }
-
 .story img {
     width: 300px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
-
 .story p {
     max-width: 600px;
     font-size: 1.2rem;
     line-height: 1.6;
     text-align: justify;
-}
-
-@media (max-width: 470px) {
-    .story {
-        flex-direction: column;
-    }
-
-    .story img {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .story p {
-        padding: 0 10px;
-    }
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    header {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    nav {
-        text-align: center;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 10px;
-    }
-
-    .photos img {
-        width: 100%;
-        height: auto;
-    }
-
-    .slideshow-controls button {
-        font-size: 1.5rem;
-    }
-
-    .indicators .dot {
-        width: 8px;
-        height: 8px;
-    }
-}
-
-@media (max-width: 600px) {
-    header {
-        font-size: 1.2rem;
-    }
-
-    nav a {
-        font-size: 1rem;
-    }
-
-    .slideshow-controls button {
-        font-size: 1.2rem;
-    }
-
-    .indicators .dot {
-        width: 6px;
-        height: 6px;
-    }
-
-    #tempo-juntos {
-        font-size: 20px; /* Reduz o tamanho da fonte para dispositivos menores */
-    }
-
-    .photo-cards {
-        flex-direction: column; /* Exibe as fotos em coluna em telas menores */
-        align-items: center;
-    }
-
-    .photo-card {
-        width: 120px; /* Ajusta o tamanho das fotos para telas menores */
-        height: 120px;
-    }
-}
-
-@media (max-width: 400px) {
-    header {
-        font-size: 1rem;
-    }
-
-    nav a {
-        font-size: 0.9rem;
-    }
-
-    #tempo-juntos {
-        font-size: 18px; /* Ajusta o tamanho da fonte do contador para telas muito pequenas */
-    }
-
-    .photo-card {
-        width: 100px;
-        height: 100px;
-    }
 }
