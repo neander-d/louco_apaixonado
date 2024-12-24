@@ -132,40 +132,84 @@ photosContainer.addEventListener('touchend', () => {
     }
 });
 });
-// (data do começo do relacionamento)
-const dataInicio = new Date('2022-05-21T00:00:00'); 
-const tempoJuntosElement = document.getElementById('tempo-juntos');
-
-// Função para atualizar o contador de tempo real
-function atualizarContador() {
-    const agora = new Date();
-    const diferenca = agora - dataInicio;
-
-    // Calcular a diferença em unidades de tempo
-    const segundos = Math.floor(diferenca / 1000);
-    const minutos = Math.floor(segundos / 60);
-    const horas = Math.floor(minutos / 60);
-    const dias = Math.floor(horas / 24);
-    const semanas = Math.floor(dias / 7);
-    const meses = Math.floor(dias / 30.44); // Média de dias por mês
-    const anos = Math.floor(dias / 365.25); // Média de dias por ano
-
-    // Montar o conteúdo com quebras de linha e dois valores por linha
-    const tempoHTML = `
-        ${anos} anos, ${meses % 12} meses <br>
-        ${semanas} semanas, ${dias} dias <br>
-        ${horas % 24} horas, ${minutos % 60} minutos <br>
-        ${segundos % 60} segundos
-    `;
-
-    // Exibir o tempo no formato desejado
+document.addEventListener('DOMContentLoaded', () => {
+    const dataInicio = new Date('2022-05-21T00:00:00');
     const tempoJuntosElement = document.getElementById('tempo-juntos');
-    tempoJuntosElement.innerHTML = tempoHTML;
 
-    // Atualizar o contador a cada segundo
-    setTimeout(atualizarContador, 1000);
+    // Função para calcular e formatar o tempo
+    function calcularTempo() {
+        const agora = new Date();
+        const diferenca = agora - dataInicio;
+
+        const segundos = Math.floor(diferenca / 1000);
+        const minutos = Math.floor(segundos / 60);
+        const horas = Math.floor(minutos / 60);
+        const dias = Math.floor(horas / 24);
+        const semanas = Math.floor(dias / 7);
+        const meses = Math.floor(dias / 30.44);
+        const anos = Math.floor(dias / 365.25);
+
+        return {
+            anos,
+            meses: meses % 12,
+            semanas,
+            dias,
+            horas: horas % 24,
+            minutos: minutos % 60,
+            segundos: segundos % 60,
+        };
+    }
+
+    // Função para atualizar o contador
+    function atualizarContador() {
+        const tempo = calcularTempo();
+
+        // Gerar o HTML com animações para os valores
+        const tempoHTML = `
+            <span>${tempo.anos} anos</span>
+            <span>${tempo.meses} meses</span>
+            <span>${tempo.semanas} semanas</span>
+            <span>${tempo.dias} dias</span>
+            <span>${tempo.horas} horas</span>
+            <span>${tempo.minutos} minutos</span>
+            <span>${tempo.segundos} segundos</span>
+        `;
+        
+        
+
+        // Atualizar o conteúdo do contador
+        tempoJuntosElement.innerHTML = tempoHTML;
+
+        // Atualizar o contador a cada segundo
+        setTimeout(atualizarContador, 1000);
+    }
+
+    // Inicializar o contador imediatamente
+    atualizarContador();
+
+  // Função para verificar se a aba "home" está ativa
+  function verificarVisibilidade() {
+    if (document.visibilityState === 'visible') {
+        // Se a aba estiver visível, atualizar o contador
+        atualizarContador();
+    }
 }
 
-// Inicializa o contador
-atualizarContador();
+// Verificar visibilidade quando o status da aba mudar
+document.addEventListener('visibilitychange', verificarVisibilidade);
+
+// Atualizar o contador a cada segundo, independentemente da visibilidade
+setInterval(() => {
+    if (document.visibilityState === 'visible') {
+        atualizarContador();
+    }
+}, 1000);
+
+// Inicializar o contador imediatamente, caso a aba esteja visível
+if (document.visibilityState === 'visible') {
+    atualizarContador();
+}
+});
+
+
 
