@@ -371,4 +371,23 @@ video {
     font-style: italic;
     text-align: center;
 }
+.more-photos {
+    text-align: center;
+    margin-top: 20px;
+}
 
+.more-photos a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.more-photos a:hover {
+    background-color: #ff6f61;
+    transform: scale(1.05);
+}
