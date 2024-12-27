@@ -21,14 +21,6 @@ header h1 {
     margin: 0;
     animation: slideIn 0.8s ease-out;
 }
-
-header p {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    font-style: italic;
-    animation: fadeIn 1.5s ease-in;
-}
-
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -101,20 +93,19 @@ nav a:hover {
     z-index: 2000;
 }
 
-/* Esconde o menu em telas menores por padrão */
-#nav-menu {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    transition: all 0.3s ease;
-}
-
 
 .container {
     text-align: center;
     margin: 20px auto;
     color: #868080;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+    width: 90%;
+    box-sizing: border-box; /* Inclui padding no tamanho total */
 }
 h2{
     font-size: 2.5em;
@@ -152,76 +143,93 @@ p .highlight {
 .photos img.active {
     display: block;
 }
-.photo-cards {
+.photo-gallery {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    gap: 0; /* Sem espaço entre as cartas */
-    padding: 40px 20px;
+    margin-bottom: 200px;
+    
 }
 
 .photo-card {
-    position: relative;
-    width: 200px;
-    height: 300px; /* Proporção de cartas de baralho */
-    border-radius: 10px;
-    overflow: hidden;
-    transform: translateX(calc(-50% + var(--offset, 0px))) rotate(calc(-5deg + 10deg * var(--random-rotation, 0)));
-    transition: transform 0.3s ease, z-index 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    z-index: calc(var(--z-index, 1)); /* Garante o empilhamento correto */
-    cursor: pointer;
+    position: absolute;
+    transform-origin: bottom center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    margin: 10px;
 }
 
-.photo-card:hover {
-    transform: scale(1.1) translateX(calc(-50% + var(--offset, 0px))) rotate(0);
-    z-index: 10; /* Traz a carta para frente ao passar o mouse */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+.photo-card:nth-child(1) {
+    transform: rotate(-35deg);
+    z-index: 1;
+}
+
+.photo-card:nth-child(2) {
+    transform: rotate(-20deg);
+    z-index: 2;
+}
+
+.photo-card:nth-child(3) {
+    transform: rotate(0deg);
+    z-index: 3;
+}
+
+.photo-card:nth-child(4) {
+    transform: rotate(20deg);
+    z-index: 2;
+}
+
+.photo-card:nth-child(5) {
+    transform: rotate(35deg);
+    z-index: 1;
 }
 
 .photo-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#fotos h2 {
+ margin-bottom: 200px;
 }
 
-.highlighted {
-    display: none;
-    margin: 20px auto;
-    max-width: 90%;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-}
-.highlighted img {
-    width: 100%;
-}
 .fullscreen {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    z-index: 1000;
 }
+
 .fullscreen img {
     max-width: 90%;
     max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
 }
-#contador-container {
+
+
+
+#contador {
+    display: block;
     text-align: center;
     margin: 20px auto;
     padding: 20px;
-    background-color: #0f3460;
     color: #f0f0f0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 80%;
+    width: 90%;
     max-width: 400px;
+    box-sizing: border-box;
 }
 #tempo-juntos {
     font-size: 1.5rem;
@@ -234,8 +242,9 @@ p .highlight {
     margin: 5px;
     background-color: #e94560;
     border-radius: 5px;
+     font-size: 1rem;
     color: white;
-    
+    text-align: center;
 }
 @keyframes fadeIn {
     from {
@@ -264,34 +273,7 @@ p .highlight {
 .indicators .dot.active {
     background-color: #fff;
 }
-.slideshow-controls {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    width: 100%;
-    z-index: 1;
-    opacity: 5;
-    transition: opacity 0.3s ease;
-}
-.slideshow-controls button {
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: #fff;
-    font-size: 2rem;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.slideshow-controls button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-.photos:hover .slideshow-controls {
-    opacity: 1;
-}
+
 .story {
     display: flex;
     flex-wrap: wrap;
@@ -312,3 +294,81 @@ p .highlight {
     line-height: 1.6;
     text-align: justify;
 }
+#music-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #0f3460;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+#para-voce {
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #16213e, #1a1a2e);
+    color: #f0f0f0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#para-voce h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #ff6f61;
+    margin-bottom: 20px;
+}
+
+.music-section,
+.video-section,
+.photo-section {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.music-section h3,
+.video-section h3,
+.photo-section h3 {
+    font-size: 2rem;
+    color: #e94560;
+    margin-bottom: 20px;
+}
+
+audio {
+    margin: 10px 0;
+    width: 100%;
+    max-width: 400px;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+video {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.photo-section figure {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 600px;
+}
+
+.photo-section img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.photo-section figcaption {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #ff6f61;
+    font-style: italic;
+    text-align: center;
+}
+

@@ -1,4 +1,4 @@
-@media (max-width: 750px) {
+@media (max-width: 480px) {
     header {
         font-size: 1.5rem;
     }
@@ -21,6 +21,21 @@
     }
     .story p {
         padding: 0 10px;
+    }
+}
+/* Ajustes para tamanhos de tela médios */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        width: 95%;
+    }
+}
+
+/* Ajustes para tamanhos de tela pequenos */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        width: 100%;
     }
 }
 @media (max-width: 768px) {
@@ -86,4 +101,55 @@
     nav a:last-child {
         border-bottom: none;
     }
+}
+@media (max-width: 750px) {
+    #contador{
+        padding: 15px;
+        width: 95%;
+    }
+
+    #tempo-juntos {
+        font-size: 1.2rem; /* Reduz tamanho do texto */
+    }
+
+    #tempo-juntos span {
+        font-size: 0.9rem; /* Ajusta tamanho dos blocos */
+        padding: 4px 8px; /* Menor padding */
+    }
+}
+
+@media (max-width: 480px) {
+    #contador {
+        padding: 10px;
+        width: 100%; /* Ocupa toda a largura */
+    }
+
+    #tempo-juntos {
+        font-size: 1rem; /* Reduz ainda mais o texto */
+    }
+
+    #tempo-juntos span {
+        font-size: 0.8rem; /* Ajusta tamanho dos blocos */
+        padding: 3px 6px; /* Padding ainda menor */
+    }
+}
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .photo-card img {
+        width: 120px; /* Reduz o tamanho das imagens */
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-card img {
+        width: 100px; /* Reduz ainda mais o tamanho das imagens */
+    }
+    .photo-card {
+        margin: 5px; /* Ajusta o espaçamento entre as fotos */
+    }
+}
+
+/* Espaçamento para evitar sobreposição */
+.photo-gallery {
+    margin-bottom: 40px; /* Espaço abaixo da galeria */
 }

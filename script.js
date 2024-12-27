@@ -52,31 +52,34 @@ document.addEventListener('DOMContentLoaded', () => {
     let autoSlide = setInterval(showNextPhoto, 5000);
 
    
-    // Funcionalidade dos cards de fotos
-    const photoCards = document.querySelectorAll('.photo-card');
-    const highlightedImage = document.querySelector('.highlighted img');
-    const fullscreenImage = document.querySelector('#fullscreen img');
+  // Seleciona todas as cartas de fotos
+const photoCards = document.querySelectorAll('.photo-card');
 
-    // Exibir a foto destacada ao clicar em um card
-    photoCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const src = card.getAttribute('data-src');
-            highlightedImage.src = src;
-            fullscreenImage.src = src;
-        });
-    });
+// Seleciona a área de visualização ampliada
+const fullscreen = document.querySelector('#fullscreen');
+const fullscreenImage = document.querySelector('#fullscreenImage');
 
-    // Exibir a foto ampliada ao clicar na imagem destacada
-    highlightedImage.addEventListener('click', () => {
-        const fullscreen = document.querySelector('#fullscreen');
-        fullscreen.style.display = 'block';
+// Evento de clique para destacar a foto
+photoCards.forEach(card => {
+    card.addEventListener('click', () => {
+        // Remove a classe 'selected' de todas as fotos
+        photoCards.forEach(item => item.classList.remove('selected'));
+        
+        // Adiciona a classe 'selected' à foto clicada
+        card.classList.add('selected');
+        
+        // Exibe a foto ampliada na visualização fullscreen
+        const clickedImage = card.querySelector('img');
+        fullscreenImage.src = clickedImage.src;
+        fullscreen.style.display = 'flex';
     });
+});
 
-    // Fechar a foto ampliada ao clicar na foto ampliada
-    fullscreenImage.addEventListener('click', () => {
-        const fullscreen = document.querySelector('#fullscreen');
-        fullscreen.style.display = 'none';
-    });
+// Fechar a foto ampliada ao clicar na foto ampliada
+fullscreenImage.addEventListener('click', () => {
+    fullscreen.style.display = 'none';
+});
+
 
 // Passagem de fotos manual por arraste
 const photosContainer = document.querySelector('.photos');
@@ -164,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function atualizarContador() {
         const tempo = calcularTempo();
 
-        // Gerar o HTML com animações para os valores
         const tempoHTML = `
             <span>${tempo.anos} anos</span>
             <span>${tempo.meses} meses</span>
@@ -174,42 +176,15 @@ document.addEventListener('DOMContentLoaded', () => {
             <span>${tempo.minutos} minutos</span>
             <span>${tempo.segundos} segundos</span>
         `;
-        
-        
 
-        // Atualizar o conteúdo do contador
         tempoJuntosElement.innerHTML = tempoHTML;
-
-        // Atualizar o contador a cada segundo
-        setTimeout(atualizarContador, 1000);
     }
+
+    // Atualizar o contador a cada segundo
+    setInterval(atualizarContador, 1000);
 
     // Inicializar o contador imediatamente
     atualizarContador();
-
-  // Função para verificar se a aba "home" está ativa
-  function verificarVisibilidade() {
-    if (document.visibilityState === 'visible') {
-        // Se a aba estiver visível, atualizar o contador
-        atualizarContador();
-    }
-}
-
-// Verificar visibilidade quando o status da aba mudar
-document.addEventListener('visibilitychange', verificarVisibilidade);
-
-// Atualizar o contador a cada segundo, independentemente da visibilidade
-setInterval(() => {
-    if (document.visibilityState === 'visible') {
-        atualizarContador();
-    }
-}, 1000);
-
-// Inicializar o contador imediatamente, caso a aba esteja visível
-if (document.visibilityState === 'visible') {
-    atualizarContador();
-}
 });
-
 
 

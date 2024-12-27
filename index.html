@@ -19,15 +19,15 @@
       
 <body>
     <header>PARA MINHA GATINHA❤️</header>
-    <p>Juntos desde 21 de maio de 2022</p>
     <div class="menu-toggle" id="menu-toggle">
-        &#9776; <!-- Ícone de hambúrguer -->
+      
     </div>
     <nav>
-        <a href="#" data-target="home">🏠 Home</a>
+        <a href="#" data-target="home" class="active">🏠 Home</a>
         <a href="#" data-target="nossa-historia">Nossa História</a>
         <a href="#" data-target="fotos">Fotos</a>
         <a href="#" data-target="quanto-te-amo">Quanto Te Amo</a>
+        <a href="#" data-target="para-voce">Para você</a>
     </nav>
 
     <div class="container">
@@ -58,11 +58,6 @@
             </div>
         </section>
     
-        <section id="contador">
-            <h3>Tempo juntos:</h3>
-            <p id="tempo-juntos"></p>
-        </section>
-        
 
         <section id="nossa-historia" class="hidden">
             <h2>Edição Especial - 2024</h2>
@@ -106,30 +101,32 @@
 
         <section id="fotos" class="hidden">
             <h2>Nossas Fotos</h2>
-            <div class="photo-cards">
-               <div class="photo-card" style="--offset: 0px; --angle: -20deg; --z-index: 1;">
-                    <img src="./img/foto10.jpg" alt="Foto 5">
+            <div class="photo-gallery">
+                <div class="photo-card">
+                    <img src="./img/foto10.jpg" alt="Foto 1" class="clickable-photo">
                 </div>
-               <div class="photo-card" style="--offset: 50px; --angle: -20deg; --z-index: 2;">
-                    <img src="./img/foto6.jpg" alt="Foto 6">
+                <div class="photo-card">
+                    <img src="./img/foto1.jpg" alt="Foto 2" class="clickable-photo">
                 </div>
-               <div class="photo-card" style="--offset: 100px; --angle: -20deg; --z-index: 3;">
-                    <img src="./img/foto7.jpg" alt="Foto 7">
+                <div class="photo-card">
+                    <img src="./img/foto7.jpg" alt="Foto 3" class="clickable-photo">
                 </div>
-               <div class="photo-card" style="--offset: 150px; --random-rotation: 0.8; --z-index: 4;">
-                    <img src="./img/foto8.jpg" alt="Foto 8">
+                <div class="photo-card">
+                    <img src="./img/foto8.jpg" alt="Foto 4" class="clickable-photo">
                 </div>
-               <div class="photo-card" style="--offset: 200px; --random-rotation: 0.11; --z-index: 5;">
-                    <img src="./img/foto9.jpg" alt="Foto 9">
+                <div class="photo-card">
+                    <img src="./img/foto9.jpg" alt="Foto 5" class="clickable-photo">
                 </div>
             </div>
-            <div class="highlighted">
-                <img src="" alt="Foto destacada">
+           
+            <div class="fullscreen" id="fullscreen" style="display: none;">
+                <img src="" alt="Foto ampliada" id="fullscreenImage">
             </div>
-            <div class="fullscreen" id="fullscreen">
-                <img src="" alt="Foto ampliada">
-            </div>
+
+            
         </section>
+        
+        
 
         <section id="quanto-te-amo" class="hidden">
             <h2>Saiba o Quanto Eu Te Amo</h2>
@@ -142,7 +139,64 @@
                 o quanto eu te amo, mas nem a maior palavra, o maior texto seriam capazes <br>
                  de descrever algo tão intenso e imensuravél. mas lhe digo hoje.. <strong>EU TE AMO !</strong> </p>
         </section>
+
+        <section id="para-voce" class="hidden">
+            <h2>Para Você ❤️</h2>
+            
+            <!-- Música especial -->
+            <div class="music-section">
+                <h3>Músicas que me lembram você</h3>
+                <audio controls>
+                    <source src="./img/Djavan - Um Amor Puro (Áudio Oficial).mp3" type="audio/mpeg">
+                    Seu navegador não suporta o player de áudio.
+                </audio>
+                <audio controls>
+                    <source src="./img/Maneva - Seja Para Mim (Ao Vivo Em São Paulo) - ManevaVEVO.mp3" type="audio/mpeg">
+                    Seu navegador não suporta o player de áudio.
+                </audio>
+                <audio controls>
+                    <source src="./img/Dias De Luta, Dias De Gloria.mp3" type="audio/mpeg">
+                    Seu navegador não suporta o player de áudio.
+                </audio>
+            </div>
+        
+            <!-- Vídeos de momentos especiais -->
+            <div class="video-section">
+                <h3>Veja bem...</h3>
+                <video controls>
+                    <source src="./img/video1.mp4" type="video/mp4">
+                    Seu navegador não suporta o player de vídeo.
+                </video>
+                <video controls>
+                    <source src="./img/video2.mp4" type="video/mp4">
+                    Seu navegador não suporta o player de vídeo.
+                </video>
+            </div>
+        
+            <!-- Foto especial -->
+            <div class="photo-section">
+                <h3>Um dos Nossos Melhores Momentos</h3>
+                <figure>
+                    <img src="./img/melhor_momento.jpg" alt="Um dos melhores momentos juntos">
+                    <figcaption>Esse foi um dos momentos mais especiais que vivemos juntos. Amo você! ❤️</figcaption>
+                </figure>
+            </div>
+        </section>
+        
     </div>
+    <footer>
+        <section id="contador">
+            <h3>Tempo juntos:
+                <h5>desde 21/05/2022</h5>
+            </h3>
+            <p id="tempo-juntos"></p>
+        </section>
+    </footer>
+     <!-- Player de música -->
+     <audio id="background-music" loop>
+        <source src="./img/Perfect.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle">🎵</button>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const menuToggle = document.getElementById("menu-toggle");
@@ -152,6 +206,20 @@
                 navMenu.classList.toggle("hidden");
             });
         });
+
+            // Lógica para o player de música
+            const music = document.getElementById('background-music');
+            const musicToggle = document.getElementById('music-toggle');
+
+            musicToggle.addEventListener('click', () => {
+                if (music.paused) {
+                    music.play();
+                    musicToggle.textContent = '🔊';
+                } else {
+                    music.pause();
+                    musicToggle.textContent = '🎵';
+                }
+            });
     </script>
     <script src="script.js"></script>
 </body>
