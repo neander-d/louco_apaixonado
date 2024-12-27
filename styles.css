@@ -79,6 +79,10 @@ nav a {
     font-weight: bold;
     font-size: 1.2rem;
 }
+nav a.active {
+    color: #e94560; /* Cor de destaque */
+    font-weight: bold; /* Opcional: para destacar ainda mais */
+}
 nav a:hover {
     color: #ff6f61;
 }

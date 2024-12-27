@@ -25,6 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    links.forEach(link => {
+        link.addEventListener('click', function (event) {
+            // Remove a classe 'active' de todos os links
+            links.forEach(link => link.classList.remove('active'));
+
+            // Adiciona a classe 'active' ao link clicado
+            event.target.classList.add('active');
+        });
+    });
+
     // Slideshow de fotos
     const photos = document.querySelectorAll('.photos img');
     const dots = document.querySelectorAll('.indicators .dot');
