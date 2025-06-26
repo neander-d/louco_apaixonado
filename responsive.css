@@ -38,12 +38,7 @@
         width: 100%;
     }
 }
-@media (max-width: 768px) {
-    .photo-card {
-        width: 150px;
-        height: 225px; /* Reduz o tamanho das cartas */
-    }
-}
+
 @media (max-width: 400px) {
     header {
         font-size: 1rem;
@@ -56,29 +51,12 @@
         height: 100px;
     }
 }
-.menu-toggle {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: white;
-    padding: 10px;
-    background-color: #e94560;
-    border-radius: 5px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1001;
-}
 
 .hidden {
     display: none;
 }
 
 @media (max-width: 750px) {
-    .menu-toggle {
-        display: block;
-    }
-
     nav {
         display: flex;
         flex-direction: column;
@@ -130,26 +108,56 @@
 
     #tempo-juntos span {
         font-size: 0.8rem; /* Ajusta tamanho dos blocos */
-        padding: 3px 6px; /* Padding ainda menor */
+        padding: 8px 16px; /* Padding ainda menor */
     }
 }
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
-    .photo-card img {
-        width: 120px; /* Reduz o tamanho das imagens */
+    .photo-gallery {
+        display: flex;
+        align-items: center;
+      
     }
-}
+
+    .photo-card {
+        position:relative; /* Evita sobreposição */
+        margin: 10px 0; /* Espaçamento entre fotos */
+    }
+
+    .photo-card img {
+        width: 250px; /* Reduz tamanho das imagens */
+        height: auto;
+    }
+
+    #fotos h2 {
+        font-size: 1.5rem; /* Ajusta tamanho do título */
+        margin-bottom: 50px;
+    }}
 
 @media (max-width: 480px) {
     .photo-card img {
-        width: 100px; /* Reduz ainda mais o tamanho das imagens */
+        width: 90%;
+        max-width: 150px;
+        height: auto;
+    
     }
     .photo-card {
-        margin: 5px; /* Ajusta o espaçamento entre as fotos */
+        margin: 5px; 
+        width: 100px;
+        height: 100px;
+        position: relative;
+        transform: none;
     }
-}
-
-/* Espaçamento para evitar sobreposição */
+    #fotos h2 {
+        font-size: 1.8rem; /* Ajusta o tamanho do título */
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .more-photos a {
+        margin-top: 20px;
+        font-size: 0.9rem; /* Ajusta tamanho do link */
+        padding: 8px 16px; /* Reduz padding */
+    }
 .photo-gallery {
-    margin-bottom: 40px; /* Espaço abaixo da galeria */
-}
+    margin-bottom: 100px; /* Espaço abaixo da galeria */
+}}

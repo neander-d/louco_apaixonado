@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dots[currentPhotoIndex].classList.add('active');
     }
 
-    // Alterar foto a cada 3 segundos
+    // Alterar foto a cada 5 segundos
     let autoSlide = setInterval(showNextPhoto, 5000);
 
    

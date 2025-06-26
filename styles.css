@@ -70,7 +70,6 @@ nav {
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
-    z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 nav a {
@@ -80,23 +79,13 @@ nav a {
     font-size: 1.2rem;
 }
 nav a.active {
-    color: #e94560; /* Cor de destaque */
-    font-weight: bold; /* Opcional: para destacar ainda mais */
+    color: #e94560; 
+    font-weight: bold; 
+    border-bottom: 2px solid #e94560;
 }
 nav a:hover {
     color: #ff6f61;
 }
-.menu-toggle {
-    display: none;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 2000;
-}
-
 
 .container {
     text-align: center;
@@ -109,7 +98,8 @@ nav a:hover {
     padding: 20px;
     max-width: 1200px;
     width: 90%;
-    box-sizing: border-box; /* Inclui padding no tamanho total */
+    box-sizing: border-box;
+     
 }
 h2{
     font-size: 2.5em;
@@ -149,15 +139,18 @@ p .highlight {
 }
 .photo-gallery {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     position: relative;
     margin-bottom: 200px;
+
     
 }
 
 .photo-card {
     position: absolute;
+    transform: none;
     transform-origin: bottom center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     z-index: 1;
@@ -221,8 +214,6 @@ p .highlight {
     cursor: pointer;
 }
 
-
-
 #contador {
     display: block;
     text-align: center;
@@ -271,7 +262,7 @@ p .highlight {
     height: 10px;
     margin: 0 5px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.312);
     transition: background-color 0.3s;
 }
 .indicators .dot.active {
@@ -394,4 +385,7 @@ video {
 .more-photos a:hover {
     background-color: #ff6f61;
     transform: scale(1.05);
+}
+#home, #nossa-historia, #fotos, #quanto-te-amo{
+    animation: fadeIn 1s ease-in-out;
 }
